@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F08%2F04%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[Python转字符画]]></title>
+    <url>%2F2018%2F10%2F13%2FPython%2F</url>
+    <content type="text"><![CDATA[步骤我们要用到Python的图像处理库PIL（Python Imaging Library）代码123456789101112131415161718192021from PIL import Imageascii_char = list(&quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&apos;. &quot;) # 字符从深到浅，如果画的不像可以更改自己想要的字符length = len(ascii_char)img = Image.open(&apos;E:\1.jpg&apos;) #输入图片位置(width, heigth) = img.sizeimg = img.resize((int(width * 0.1), int(heigth * 0.05))) # 缩小，便于字符画的展示print(img.size) # 打印字符画的宽和高def covert(img): img = img.convert(&quot;L&quot;) # 彩图直接灰度化 txt = &quot;&quot; for i in range(img.size[1]): # 高，也就是行 for j in range(img.size[0]): # 宽，也就是高 gray = img.getpixel((j, i)) # 得到该点的灰度 gray /= 256.0 # 灰度归一化 txt += ascii_char[int(gray * length)] # 不同灰度分散到字符列表中的每个字符 txt += &apos;\n&apos; # 表示做完一行了 return txttxt = covert(img)f = open(&apos;E:\1.txt&apos;, &apos;w&apos;) #保存生成得txt文件位置f.write(txt)f.close() 原图 转为字符串的图 PS：(记事本打开自动换行，字体：宋体 小五)]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
 </search>
